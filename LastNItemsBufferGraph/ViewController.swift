@@ -13,13 +13,11 @@ class ViewController: UIViewController {
 
     @IBOutlet var resetButton: UIButton!
     weak var timer: Timer?
-    let stepDuration = 0.2
-    var value = Character("A").asciiValue!
+    let stepDuration = 0.1
     var buffer = LastNItemsBuffer<CGFloat>.init(count: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -30,13 +28,18 @@ class ViewController: UIViewController {
     @IBAction func handleResetButton(_ sender: UIButton) {
         graphView.reset()
     }
+    @IBAction func handleShowPointsSwitch(_ theSwitch: UISwitch) {
+        graphView.drawPoints = theSwitch.isOn
+    }
+    
     @IBAction func handleAnimateSwitch(_ theSwitch: UISwitch) {
         resetButton.isEnabled = !theSwitch.isOn
+        var value = CGFloat.random(in: self.graphView.minValue...self.graphView.maxValue)
         if theSwitch.isOn {
             timer = Timer.scheduledTimer(withTimeInterval: stepDuration
                                          , repeats: true) { (timer) in
-                let newValue = CGFloat.random(in: self.graphView.minValue...self.graphView.maxValue)
-                self.graphView.animateNewValue(newValue, duration: self.stepDuration)
+                value = CGFloat.random(in: self.graphView.minValue...self.graphView.maxValue)
+                self.graphView.animateNewValue(value, duration: self.stepDuration)
             }
         } else {
             timer?.invalidate()

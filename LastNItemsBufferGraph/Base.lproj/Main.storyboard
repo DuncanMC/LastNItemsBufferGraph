@@ -57,6 +57,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-hZ-z6b">
+                                <rect key="frame" x="126" y="760" width="162.5" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q25-Ee-39a">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="handleShowPointsSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="dEy-iw-Jyt"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRI-0A-RcB">
+                                        <rect key="frame" x="69" y="0.0" width="93.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,6 +82,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9Wp-vC-eIO" secondAttribute="bottom" constant="20" id="2lo-dw-EAU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G01-v0-GCr" secondAttribute="trailing" constant="2" id="2zJ-UJ-7so"/>
                             <constraint firstItem="G01-v0-GCr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="b2t-y6-88I"/>
+                            <constraint firstItem="9Wp-vC-eIO" firstAttribute="top" secondItem="F3Q-hZ-z6b" secondAttribute="bottom" constant="20" id="cvy-Vf-LyC"/>
+                            <constraint firstItem="F3Q-hZ-z6b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gCD-WO-UZt"/>
                             <constraint firstItem="9Wp-vC-eIO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jIE-13-3yi"/>
                         </constraints>
                     </view>

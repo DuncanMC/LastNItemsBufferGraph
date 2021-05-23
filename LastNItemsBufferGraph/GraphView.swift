@@ -11,6 +11,12 @@ class GraphView: UIView {
 
     var maxValue: CGFloat = 50
     var minValue: CGFloat = -50
+    var drawPoints: Bool = false {
+        didSet {
+            guard let layer = self.layer as? CAShapeLayer else { return }
+            layer.path = self.buildPath().path
+        }
+    }
 
     var points: LastNItemsBuffer<CGFloat>? {
         didSet {
@@ -103,6 +109,11 @@ class GraphView: UIView {
                 path.move(to: newPoint)
             } else {
                 path.addLine(to: CGPoint(x: x, y: y))
+                if drawPoints {
+                    let rect = CGRect(x: x, y: y, width: 0, height: 0).insetBy(dx: -2, dy: -2)
+                    path.addRect(rect)
+                    path.move(to: CGPoint(x: x, y: y))
+                }
             }
         }
         if let extraValue = plusValue {
