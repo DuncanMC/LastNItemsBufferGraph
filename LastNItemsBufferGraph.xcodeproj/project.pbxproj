@@ -15,6 +15,8 @@
 		AEF20440265AA672004FECB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF2043E265AA672004FECB5 /* LaunchScreen.storyboard */; };
 		AEF2044B265AA672004FECB5 /* LastNItemsBufferGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2044A265AA672004FECB5 /* LastNItemsBufferGraphTests.swift */; };
 		AEF20456265AA672004FECB5 /* LastNItemsBufferGraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20455265AA672004FECB5 /* LastNItemsBufferGraphUITests.swift */; };
+		AEF20467265AA683004FECB5 /* LastNItemsBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20466265AA683004FECB5 /* LastNItemsBuffer.swift */; };
+		AEF2046C265AAEAE004FECB5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2046B265AAEAE004FECB5 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		AEF20451265AA672004FECB5 /* LastNItemsBufferGraphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LastNItemsBufferGraphUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF20455265AA672004FECB5 /* LastNItemsBufferGraphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNItemsBufferGraphUITests.swift; sourceTree = "<group>"; };
 		AEF20457265AA672004FECB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEF20466265AA683004FECB5 /* LastNItemsBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNItemsBuffer.swift; sourceTree = "<group>"; };
+		AEF2046B265AAEAE004FECB5 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				AEF20433265AA66F004FECB5 /* AppDelegate.swift */,
 				AEF20435265AA66F004FECB5 /* SceneDelegate.swift */,
 				AEF20437265AA66F004FECB5 /* ViewController.swift */,
+				AEF20466265AA683004FECB5 /* LastNItemsBuffer.swift */,
+				AEF2046B265AAEAE004FECB5 /* GraphView.swift */,
 				AEF20439265AA66F004FECB5 /* Main.storyboard */,
 				AEF2043C265AA672004FECB5 /* Assets.xcassets */,
 				AEF2043E265AA672004FECB5 /* LaunchScreen.storyboard */,
@@ -258,9 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF2046C265AAEAE004FECB5 /* GraphView.swift in Sources */,
 				AEF20438265AA66F004FECB5 /* ViewController.swift in Sources */,
 				AEF20434265AA66F004FECB5 /* AppDelegate.swift in Sources */,
 				AEF20436265AA66F004FECB5 /* SceneDelegate.swift in Sources */,
+				AEF20467265AA683004FECB5 /* LastNItemsBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
