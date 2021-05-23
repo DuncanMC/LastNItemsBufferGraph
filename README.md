@@ -11,4 +11,4 @@ Internally, the `GraphView` uses a `CAShapeLayer` to render the graph. When you 
 
 The animation looks like this:
 
-![Graph animation](Graph animation.gif)
+![Graph animation](GraphAnimation.gif)
