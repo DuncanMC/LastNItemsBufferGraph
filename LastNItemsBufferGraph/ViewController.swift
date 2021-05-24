@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet var resetButton: UIButton!
     weak var timer: Timer?
-    let stepDuration = 0.1
-    var buffer = LastNItemsBuffer<CGFloat>.init(count: 20)
+    let stepDuration = 0.05
+    var buffer = LastNItemsBuffer<CGFloat>.init(count: 80)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         if theSwitch.isOn {
             timer = Timer.scheduledTimer(withTimeInterval: stepDuration
                                          , repeats: true) { (timer) in
-                value = CGFloat.random(in: self.graphView.minValue...self.graphView.maxValue)
+                value = CGFloat.random(in: self.graphView.minValue * 0.75...self.graphView.maxValue * 0.75)
                 self.graphView.animateNewValue(value, duration: self.stepDuration)
             }
         } else {

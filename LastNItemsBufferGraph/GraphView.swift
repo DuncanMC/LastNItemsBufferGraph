@@ -9,6 +9,7 @@ import UIKit
 
 class GraphView: UIView {
 
+    var drawBarGraph = true
     var maxValue: CGFloat = 50
     var minValue: CGFloat = -50
     var drawPoints: Bool = false {
@@ -43,9 +44,11 @@ class GraphView: UIView {
 
     func doInitSetup() {
         guard let layer = self.layer as? CAShapeLayer else { return }
-        layer.strokeColor = UIColor.black.cgColor
+        layer.strokeColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1).cgColor
         layer.fillColor = UIColor.clear.cgColor
-        layer.lineWidth = 1
+        layer.lineWidth = 2
+        layer.lineCap = .round
+
     }
 
     public func reset() {
@@ -92,6 +95,12 @@ class GraphView: UIView {
         let range = minValue - maxValue
         let stepHeight = graphBounds.height  / range
 
+        func pointsForIndex(_ index: Int, value: CGFloat) -> (top: CGPoint, bottom: CGPoint) {
+            let top = graphBounds.height / 2 + abs(value) * stepHeight + graphBounds.origin.y
+            let bottom = graphBounds.height / 2 - abs(value) * stepHeight + graphBounds.origin.y
+            let x = CGFloat(index) * stepWidth + graphBounds.origin.x
+            return (CGPoint(x: x, y: top), CGPoint(x: x, y: bottom))
+        }
         func xForIndex(_ index: Int) -> CGFloat {
             return CGFloat(index) * stepWidth + graphBounds.origin.x
         }
@@ -99,27 +108,39 @@ class GraphView: UIView {
         func yForvalue(_ value: CGFloat) -> CGFloat {
             return graphBounds.height / 2 + value * stepHeight + graphBounds.origin.y
         }
-
         let path = CGMutablePath()
-        for (index, value) in points.lastNItems().enumerated() {
-            let x = xForIndex(index)
-            let y = yForvalue(value)
-            let newPoint = CGPoint(x: x, y: y)
-            if index == 0 {
-                path.move(to: newPoint)
-            } else {
-                path.addLine(to: CGPoint(x: x, y: y))
-                if drawPoints {
-                    let rect = CGRect(x: x, y: y, width: 0, height: 0).insetBy(dx: -2, dy: -2)
-                    path.addRect(rect)
-                    path.move(to: CGPoint(x: x, y: y))
+        if drawBarGraph {
+            for (index, value) in points.lastNItems().enumerated() {
+                let points = pointsForIndex(index, value: value)
+                path.move(to: points.top)
+                path.addLine(to: points.bottom)
+            }
+            if let extraValue = plusValue {
+                let points = pointsForIndex(points.count, value: extraValue)
+                path.move(to: points.top)
+                path.addLine(to: points.bottom)
+            }
+        } else {
+            for (index, value) in points.lastNItems().enumerated() {
+                let x = xForIndex(index)
+                let y = yForvalue(value)
+                let newPoint = CGPoint(x: x, y: y)
+                if index == 0 {
+                    path.move(to: newPoint)
+                } else {
+                    path.addLine(to: newPoint)
+                    if drawPoints {
+                        let rect = CGRect(x: x, y: y, width: 0, height: 0).insetBy(dx: -2, dy: -2)
+                        path.addRect(rect)
+                        path.move(to: CGPoint(x: x, y: y))
+                    }
                 }
             }
-        }
-        if let extraValue = plusValue {
-            let x = xForIndex(points.count)
-            let y = yForvalue(extraValue)
-            path.addLine(to: CGPoint(x: x, y: y))
+            if let extraValue = plusValue {
+                let x = xForIndex(points.count)
+                let y = yForvalue(extraValue)
+                path.addLine(to: CGPoint(x: x, y: y))
+            }
         }
         return (path, stepWidth)
     }
