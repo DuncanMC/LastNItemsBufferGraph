@@ -28,7 +28,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="9Wp-vC-eIO">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="9Wp-vC-eIO" userLabel="Animate StackView">
                                 <rect key="frame" x="112.5" y="811" width="189.5" height="31"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rdx-d1-LHh">
@@ -57,7 +57,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-hZ-z6b">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-hZ-z6b" userLabel="Show points stackView">
                                 <rect key="frame" x="126" y="760" width="162.5" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q25-Ee-39a">
@@ -74,6 +74,23 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-pH-QiL" userLabel="Bar graph stack view">
+                                <rect key="frame" x="109" y="709" width="196.5" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBz-oM-pOg">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="handleDrawBargraphSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="O2Q-CJ-svx"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Draw Bar Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrH-ou-i2h">
+                                        <rect key="frame" x="76" y="0.0" width="120.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,6 +98,8 @@
                             <constraint firstItem="G01-v0-GCr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="1pT-Wr-v2N"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9Wp-vC-eIO" secondAttribute="bottom" constant="20" id="2lo-dw-EAU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G01-v0-GCr" secondAttribute="trailing" constant="2" id="2zJ-UJ-7so"/>
+                            <constraint firstItem="3h9-pH-QiL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C20-Lk-tog"/>
+                            <constraint firstItem="F3Q-hZ-z6b" firstAttribute="top" secondItem="3h9-pH-QiL" secondAttribute="bottom" constant="20" id="LcH-QH-GO4"/>
                             <constraint firstItem="G01-v0-GCr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="b2t-y6-88I"/>
                             <constraint firstItem="9Wp-vC-eIO" firstAttribute="top" secondItem="F3Q-hZ-z6b" secondAttribute="bottom" constant="20" id="cvy-Vf-LyC"/>
                             <constraint firstItem="F3Q-hZ-z6b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gCD-WO-UZt"/>

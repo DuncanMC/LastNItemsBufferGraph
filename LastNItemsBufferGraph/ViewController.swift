@@ -32,6 +32,10 @@ class ViewController: UIViewController {
         graphView.drawPoints = theSwitch.isOn
     }
     
+    @IBAction func handleDrawBargraphSwitch(_ sender: UISwitch) {
+        graphView.drawBarGraph = sender.isOn
+    }
+    
     @IBAction func handleAnimateSwitch(_ theSwitch: UISwitch) {
         resetButton.isEnabled = !theSwitch.isOn
         var value = CGFloat.random(in: self.graphView.minValue...self.graphView.maxValue)

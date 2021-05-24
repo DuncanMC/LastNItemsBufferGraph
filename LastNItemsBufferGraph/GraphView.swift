@@ -9,17 +9,23 @@ import UIKit
 
 class GraphView: UIView {
 
-    var drawBarGraph = true
-    var maxValue: CGFloat = 50
-    var minValue: CGFloat = -50
-    var drawPoints: Bool = false {
+    public var maxValue: CGFloat = 50
+    public var minValue: CGFloat = -50
+
+    public var drawBarGraph = true {
+        didSet {
+            guard let layer = self.layer as? CAShapeLayer else { return }
+            layer.path = self.buildPath().path
+        }
+    }
+    public var drawPoints: Bool = false {
         didSet {
             guard let layer = self.layer as? CAShapeLayer else { return }
             layer.path = self.buildPath().path
         }
     }
 
-    var points: LastNItemsBuffer<CGFloat>? {
+    public var points: LastNItemsBuffer<CGFloat>? {
         didSet {
             guard let layer = self.layer as? CAShapeLayer else { return }
             if oldValue == nil {
