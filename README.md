@@ -11,4 +11,14 @@ Internally, the `GraphView` uses a `CAShapeLayer` to render the graph. When you 
 
 The animation looks like this:
 
-![Graph animation](GraphAnimation.gif)
+![Line Graph animation](GraphAnimation.gif)
+
+The app will also generate a bar graph, in the style of the iOS Voice Memo recorder. That graph looks like this
+
+
+![Bar Graph animation](BarGraph.gif)
+
+The app's screen looks like this:
+
+![App screenshot](AppScreenshot.png)
+
